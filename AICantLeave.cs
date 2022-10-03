@@ -9,7 +9,6 @@ namespace AICantLeave
         public override IEnumerator OnLoadCoroutine()
         {
             EventManager.OnPlayerSpawned += OnPlayerSpawned;
-            Debug.Log("(AICantLeave) Loaded successfully!");
             return base.OnLoadCoroutine();
         }
 
