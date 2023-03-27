@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using ThunderRoad;
+﻿using ThunderRoad;
 using UnityEngine;
 
 namespace AICantLeave
 {
-    public class AICantLeave : LevelModule
+    public class AICantLeave : ThunderScript
     {
-        public override IEnumerator OnLoadCoroutine()
+        public override void ScriptLoaded(ModManager.ModData modData)
         {
-            EventManager.OnPlayerSpawned += OnPlayerSpawned;
-            return base.OnLoadCoroutine();
+            base.ScriptLoaded(modData);
+            EventManager.OnPlayerSpawner += OnPlayerSpawner;
+
         }
 
-        private void OnPlayerSpawned()
+        private void OnPlayerSpawner(PlayerSpawner playerSpawner, EventTime eventTime)
         {
             FleePoint.list.Clear();
         }
